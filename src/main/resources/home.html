@@ -8,18 +8,18 @@
     <link rel="icon" href="favicon.ico">
 
     <title>EmpleosApp | Aplicación para publicar Ofertas de Trabajo.</title>
-    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
-    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
-    <link th:href="@{https://use.fontawesome.com/releases/v5.5.0/css/all.css}" rel="stylesheet">
+    <link href="/bootstrap/css/jumbotron.css" rel="stylesheet">
+    <link href="/bootstrap/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
   </head>
 
   <body>
 
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Empleos</a>
+        <a class="navbar-brand" href="#">EmpleosApp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,13 +27,13 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link active" th:href="@{/}">Inicio</a>
+              <a class="nav-link active" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/categoria/index}">Categorias</a>
+              <a class="nav-link" href="/categoria/index">Categorias</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/vacante/index}">Vacantes</a>
+              <a class="nav-link" href="/vacante/index">Vacantes</a>
             </li>          
           </ul>  
           <a class="btn btn-primary" href="#">Ingresar</a>&nbsp;
@@ -45,7 +45,7 @@
     <main role="main">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron" th:object="${categoria}">
+      <div class="jumbotron">
         <div class="container">
           <h3>Encuentra el trabajo que andas buscando.</h3>
           Puedes buscar por descripción y categoría.
@@ -53,9 +53,9 @@
             <input type="text" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Escriba una búsqueda">&nbsp;
             <select class="custom-select custom-select mb-3" name="categoria" id="categoria">
               <option selected>Seleccione una categoría</option>
-              <option th:each="categoria:${categorias}" 
-              	th:value="${categoria.id}" 
-              	th:text="${categoria.nombre}"></option>
+              <option value="1">TICS</option>
+              <option value="2">Seguridad</option>
+              <option value="3">Automotriz</option>
             </select>&nbsp;
             <button type="submit" class="btn btn-primary mb-3">Buscar</button>
           </form>
@@ -66,16 +66,40 @@
       <div class="container" > 
         <h2 class="font-weight-bold text-center text-capitalize">DESTACADOS</h2>
         <hr>
-        <div class="row" th:each="vacante:${vacantes}" >
+        <div class="row" >
           <div class="col-md-3">            
-            <img class="rounded mx-auto d-block" name="archivoImagen" id="archivoImagen" th:src="@{/images/{img} (img=${vacante.imagen})}" width="220" height="220">            
+            <img class="rounded mx-auto d-block" name="archivoImagen" id="archivoImagen" src="/images/logo1.png" width="220" height="220">            
           </div>
           <div class="col-md-9">
-            <h2 th:text="${vacante.nombre}"></h2>
-            <h6 class="card-title"><strong>Categoría: </strong> <span th:text="${vacante.categoria.nombre}"></span></h6>
-            <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${vacante.fecha}"> </span></h6>                
-            <p th:utext="${vacante.detalles}"></p>
-            <p><a class="btn btn-secondary" th:href="@{/vacante/detalle(id=${vacante.id})}" role="button">View details &raquo;</a></p>            
+            <h2>Desarrollador Web</h2>
+            <h6 class="card-title"><strong>Categoría: </strong> <span>TICS</span></h6>
+            <h6 class="card-title"><strong>Publicado: </strong> <span>1998-02-05</span></h6>                
+            <p><h2>Ofrecemos</h2><ul><li>Salario Atractvo</li><li>Oportunidad de desarrollo</li></ul></p>
+            <p><a class="btn btn-secondary" href="/vacante/detalle?id=1" role="button">View details &raquo;</a></p>            
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-md-3">            
+            <img class="rounded mx-auto d-block" name="archivoImagen" id="archivoImagen" src="/images/logo8.png" width="220" height="220">            
+          </div>
+          <div class="col-md-9">
+            <h2> Web Desarrollador</h2>
+            <h6 class="card-title"><strong>Categoría: </strong> <span>TICS</span></h6>
+            <h6 class="card-title"><strong>Publicado: </strong> <span>1998-02-05</span></h6>                
+            <p><h2>Ofrecemos</h2><ul><li>Salario Atractvo</li><li>Oportunidad de desarrollo</li></ul></p>
+            <p><a class="btn btn-secondary" href="/vacante/detalle?id=2" role="button">View details &raquo;</a></p>            
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-md-3">            
+            <img class="rounded mx-auto d-block" name="archivoImagen" id="archivoImagen" src="/images/logo7.png" width="220" height="220">            
+          </div>
+          <div class="col-md-9">
+            <h2> Seguridad</h2>
+            <h6 class="card-title"><strong>Categoría: </strong> <span>Automotriz</span></h6>
+            <h6 class="card-title"><strong>Publicado: </strong> <span>1998-02-05</span></h6>                
+            <p><h2>Ofrecemos</h2><ul><li>Salario Atractvo</li><li>Oportunidad de desarrollo</li></ul></p>
+            <p><a class="btn btn-secondary" href="/vacante/detalle?id=3" role="button">View details &raquo;</a></p>            
           </div>
         </div>  
 		  <hr>	
@@ -99,3 +123,4 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
+
