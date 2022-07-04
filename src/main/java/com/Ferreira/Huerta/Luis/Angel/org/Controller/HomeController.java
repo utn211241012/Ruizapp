@@ -1,7 +1,14 @@
 package com.Ferreira.Huerta.Luis.Angel.org.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.Ferreira.Huerta.Luis.Angel.org.Model.Categoria;
+import com.Ferreira.Huerta.Luis.Angel.org.Model.Vacante;
+import com.Ferreira.Huerta.Luis.Angel.org.Service.IntCategorias;
+import com.Ferreira.Huerta.Luis.Angel.org.Service.IntVacantes;
 
 @Controller
 public class HomeController {
